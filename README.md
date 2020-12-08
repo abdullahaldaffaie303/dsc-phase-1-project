@@ -1,64 +1,89 @@
-# Phase 1 Project
+# Project Description:
 
-You've made it all the way through the first phase of this course - take a minute to celebrate your awesomeness!
+Analyzing movie data to come up with recommendations for Microsoft's new movie studio
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project/master/awesome.gif)
+## Data 
 
-Now you will put your new skills to use with a large end-of-Phase project! This project should take 20 to 30 hours to complete.
+Movie datasets from:
 
-## Project Overview
+1. Box Office Mojo
+2. IMDB
+3. Rotten Tomatoes
+4. TheMovieDB.org
 
-For this project, you will use exploratory data analysis to generate insights for a business stakeholder.
+## Key Findings
 
-### Business Problem
+### Is there a relation between the runtime for a movie and profit?
 
-Microsoft sees all the big companies creating original video content and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
+I looked into (movie_budgets) file and it has a column for a (production budget) and 
+column for (worldwide gross), from the data in the 2 column we were able to find 
+out if the movies made profit or not.The data need some cleaning, first we worked on cleaning the data type from object to int64, second we cleaned the missing values.Then I merged it with (title basics) which has the runtime column and cleaned the data some more.
 
-### The Data
+Here are our key findings:
 
-In the folder `zippedData` are movie datasets from:
+1. There is a relation between the runtime and how profitable the movie is.
+2. The best runtime is around a hour.
+3. But anything over an hour and twenty minutes does not do good. 
 
-* Box Office Mojo
-* IMDB
-* Rotten Tomatoes
-* TheMovieDB.org
+![profitable_runtime](1.png)
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind (e.g. struggled with the Phase 1 Code Challenge), we recommend you use only the following data files:
+**recommendations**
 
-* imdb.title.basics
-* imdb.title.ratings
-* bom.movie_gross
+1. If you are looking to make profitable movies conceder making the runtime around 
+   the hour mark.
+2. if you had to go over an hour, i would recommend keeping it under the hour and 
+   fifteen minute mark.
 
-## Deliverables
+### Who are the Top 5 Directors to work with?
 
-There are three deliverables for this project:
+I looked into (movie_info) file and it has a column for a (Director) and  
+column for (box_office), from the data in the 2 column we were able to find 
+out the relationship between the movies that did well at the box office and 
+the directors who worked on them. The data need some cleaning, first we worked 
+on cleaning the data type from object to int64 for the (box_office) column, 
+second we cleaned the missing values.
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+Here are our findings:
+    
+1. We were able to determine the best top five directors.
+2. The top 5 directors are: 1.Mel Gibson 2. Peter Jackson 3. Sam Mendes 4. Jay Roach 5. Chris Columbus
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
 
-### Key Points
+![top_5_directors](2.png)
 
-* **Your analysis should yield three concrete business recommendations.** The ultimate purpose of exploratory analysis is not just to learn about the data, but to help an organization perform better. Explicitly relate your findings to business needs by recommending actions that you think the business (Microsoft) should take.
+**Recommendation**
 
-* **Communicating about your work well is extremely important.** Your ability to provide value to an organization - or to land a job there - is directly reliant on your ability to communicate with them about what you have done and why it is valuable. Create a storyline your audience (the head of Microsoft's new movie studio) can follow by walking them through the steps of your process, highlighting the most important points and skipping over the rest.
+. If you were looking into making movies that do well at the Box office I would recommend you 
+   use one of the top 5 directors to direct your movies.
+   
+. Based on the correlation between writer and director, we suggest that the main writer and director be the same person
 
-* **Use plenty of visualizations.** Visualizations are invaluable for exploring your data and making your findings accessible to a non-technical audience. Spotlight visuals in your presentation, but only ones that relate directly to your recommendations. Simple visuals are usually best (e.g. bar charts and line graphs), and don't forget to format them well (e.g. labels, titles).
+### Who are the Top 5 Writers to work with?
 
-## Getting Started
+I looked into (movie_info) file and it has a column for a (Writer) and  
+column for (box_office), from the data in the 2 columns we were able to find 
+out the relationship between the movies that did well at the box office and 
+the Writers who worked on them. The data need some cleaning, so first we worked 
+on cleaning the Writer column because some of the values had 2 names on them
+at a time. We separated the names and got rid of the repeated values. Second we cleaned the missing values.
 
-Please start by reviewing this assignment, the rubric at the bottom of it, and the "Project Submission & Review" page. If you have any questions, please ask your instructor ASAP.
+Here are our findings:
 
-Next, we recommend you check out [the Phase 1 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and use the MVP template for your project.
+. The top 5 writers to work with are :
 
-Alternatively, you can fork [the Phase 1 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-1-project), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
+1. Mel Gibson 2. Peter Jackson 3. John Logan 4. Jim Herzfeld 5. Steve Kloves
 
-## Project Submission and Review
+![top_5_writers](3.png)
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+***Recommendation***
 
-## Summary
+. Consider those writers to work on your movies, the movies they worked on did well at the box office.
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+# Command to convert jupyter notebook to markdown file
+
+# jupyter nbconvert --to markdown notebookname.ipynb
+
+
+```python
+
+```
